@@ -1,6 +1,6 @@
 import os
 
-
+k
 class WriteFile:
     file_location = 'C:/Users/' + os.getlogin() + '/.PyHourRecorder'
 
@@ -22,7 +22,7 @@ class WriteFile:
         yyyy = 1111
         mm = 1
         dd = 1
-        if mm == 01 or 03 or 05 or 07:
+        if mm == 1 or 3 or 5 or 7:
             if dd > 31:
                 mm += 1
                 dd - 31
@@ -34,7 +34,7 @@ class WriteFile:
 
             if mm == 12:
                 if dd > 31:
-                    mm = 01
+                    mm = 1
                     dd - 31
 
         elif mm == 4 or 6 or 9 or 11:
@@ -42,7 +42,7 @@ class WriteFile:
                 mm += 1
                 dd - 30
 
-        elif mm == 02:
+        elif mm == 2:
             if dd > 29 and yyyy == isinstance(yyyy / 4, int):
                 mm += 1
                 dd - 29
@@ -51,6 +51,11 @@ class WriteFile:
                 mm += 1
                 dd - 28
 
+        if dd < 10:
+            dd = "0" + dd
+
+        if mm < 10:
+            mm = "0" + mm
 
     def write_txt(self):
         txt = open(self.file_location + '/hours.txt', "w+")
