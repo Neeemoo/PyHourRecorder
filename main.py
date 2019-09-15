@@ -13,7 +13,7 @@ class Main:
     # if file does not exist, create it and do the following steps
     if rf.create_txt():
         # write a basic table into the file
-        wf.first_write()
+        wf.print_file()
 
     # read the file and print it into the console
     rf.read_txt()
