@@ -1,4 +1,5 @@
 import os
+import sys
 
 
 class WriteFile:
@@ -15,6 +16,9 @@ class WriteFile:
     date = dd, '.', mm, '.', yyyy
     std_balance = '00:00'
     day_of_week = different_week_days[0]
+
+    hours_worked = '00:00'
+    hours_daily_goal = '00:00'
     std_balance_today = '00:00'
     std_balance_total = '00:00'
 
@@ -28,19 +32,22 @@ class WriteFile:
         first_txt.write(self.first_file_print)
 
     def print_file(self):
+
         file_print = "+-----------------------------------+ \n" \
                      "| Start:  | --------------- | " + self.time_work_start + " | \n" \
                      "| Mittag: | --------------- | " + self.time_lunch_start + " | \n" \
                      "| M-Ende: | --------------- | " + self.time_lunch_end + " | \n" \
                      "| Ende:   | --------------- | " + self.time_work_end + " | \n" \
                      "+-----------------------------------+ \n" \
-                     "| Stundenbilanz:  |-----------------| \n" \
+                     "| Ziel Stunden:   | ------- | " + self.hours_daily_goal + " | \n" \
+                     "| Arbeits Stunden:| ------- | " + self.hours_worked + " | \n" \
                      "| Heutige-bilanz: | ------- | " + self.std_balance_today + " | \n" \
                      "| Totale-bilanz:  | ------- | " + self.std_balance_total + " | \n" \
                      "+-----------------------------------+"
 
         hour_txt = open(self.file_location + '/hours.txt', "w+")
         hour_txt.write(str(file_print))
+
 
 
 
